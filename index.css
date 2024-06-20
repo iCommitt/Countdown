@@ -18,6 +18,7 @@ body{
     padding: 30px 50px;
     border-radius: 20px;
     background-color: #e26ffa;
+    margin-bottom: 20px;
 }
 
 .length {
@@ -29,6 +30,15 @@ body{
     border: 5px white solid;
 }
 
+.error{
+    font-size: 30px;
+    background-color: #f78ba7;
+    border-radius: 10px;
+    color: black;
+    padding: 5px;
+    outline: none;
+    border: 5px white solid;
+}
 button{
     margin-top: 20px;
     width: 100%;

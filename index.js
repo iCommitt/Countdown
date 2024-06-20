@@ -1,13 +1,22 @@
 const pause = document.querySelector('.pause');
 let input = document.querySelector('.length');
-let resetValue = document.querySelector('.reset');
+let startMin = document.querySelectorAll('.startMin');
+let container = document.querySelector('.container');
 
 function start(){
 
+    let regex = /^[a-zA-Z]+$/;
+    if (input.value == '') return 0;
+    if (regex.test(String(input.value))) {
+        let error = document.createElement('span');
+        error.className = 'error';
+        error.innerHTML = 'Введите время в формате mm:ss'
+        container.append(error);
+        setTimeout(function(){error.remove()}, 3000)
+        return 0;
+    }
     let timerInterval, brick;
     pause.innerHTML == '▷' ? pause.innerHTML = '| |' : pause.innerHTML = '▷';
-
-
 
     let startTime = String(input.value).split(':')
     let timeLimitInMinutes = +startTime[0];
@@ -56,14 +65,8 @@ function start(){
 
 }
 
-function ten(){
-    input.value = '15:00';
-}
-
-function fifteen(){
-    input.value = '30:00';
-}
-
-function thirty(){
-    input.value = '60:00';
+for (let i = 0; i < startMin.length; i++){
+    startMin[i].addEventListener('click', function(){
+        input.value = startMin[i].innerHTML + ':' + '00';
+    })
 }
